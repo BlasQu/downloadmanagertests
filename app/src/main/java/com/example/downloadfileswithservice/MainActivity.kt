@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val uri = Uri.parse("https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf")
 
-        val request = DownloadManager.Request(uri).setDescription("DummyFile").setTitle("Dummy").setAllowedOverMetered(true)
+        val request = DownloadManager.Request(uri).setDescription("DummyFile").setTitle("Dummy").setAllowedOverMetered(true).setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
 
         val location = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         downloadid = location.enqueue(request)
